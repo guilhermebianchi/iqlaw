@@ -24,20 +24,37 @@
             @include( 'inc.header' )
 
             <!-- BANNER -->
-            <section class="bg-img cover-background full-screen pt-16 pb-8 p-lg-0 min-md-height-auto" data-overlay-dark="0" data-background="{{ asset( 'storage'.json_decode( $data[ 'banner' ][ 0 ][ 'image' ] )[ 0 ] ) }}">
-                <div class="container d-flex flex-column">
-                    <div class="row align-items-center min-lg-vh-100">
-                        <div class="col-lg-12 mb-5 mb-lg-0">
-                            <h1 class="text-white display-16 display-md-9 display-lg-7 display-xl-4 mb-1-6 text-shadow font-weight-800 text-center">{!! $data[ 'banner' ][ 0 ][ 'text2' ] !!}</h1>
-                            <p class="mb-2-2 display-29 display-md-28 text-white text-center">{!! $data[ 'banner' ][ 0 ][ 'text3' ] !!}</p>
+            <div id="banner" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+
+                    @for( $i=0; $i < count( $data[ 'banner' ] ); $i++ )
+                        <div class="carousel-item <?php echo ( $i == 0 ) ? 'active' : '' ?>" style="height:750px; background:url('storage{{ json_decode( $data[ 'banner' ][ $i ][ 'image' ] )[ 0 ] }}') center no-repeat;">
+                            <div class="container d-flex flex-column">
+                                <div class="row align-items-center min-lg-vh-100">
+                                    <div class="col-lg-12 mb-5 mb-lg-0">
+                                        <h1 class="text-white display-16 display-md-9 display-lg-7 display-xl-4 mb-1-6 text-shadow font-weight-800 text-center">{!! $data[ 'banner' ][ 0 ][ 'text2' ] !!}</h1>
+                                        <p class="mb-2-2 display-29 display-md-28 text-white text-center">{!! $data[ 'banner' ][ 0 ][ 'text3' ] !!}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    @endfor
+
                 </div>
-            </section>
+                <a class="carousel-control-prev" href="#banner" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#banner" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
             <!-- /BANNER -->
 
 
             <!-- IQ LAW -->
+            <div id="About"></div>
             <section class="container-fluid p-0 mt-5 mb-5">
                 <div class="container text-center font-weight-400" style="font-size:13px;">
                     <img class="mb-5" src="{{ URL::asset( 'images/logo.png' ) }}" title="{{ __( 'parameters.title' ) }}" alt="{{ __( 'parameters.title' ) }}">
@@ -71,6 +88,7 @@
             <!-- /RANGE -->
 
             <!-- OCCUPATION AREA -->
+            <div id="OccupationArea"></div>
             <section class="mt-5 mb-5 p-0">
                 <h3 class="text-center mb-5">
                     <?php echo html_entity_decode( $data[ 'home' ][ 0 ][ 'text6' ] ); ?>
@@ -78,27 +96,31 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-4">
-                            <img class="img-responsive" src="{{ URL::asset( 'storage/temp1.png' ) }}" alt="Insurance dispute" title="Insurance dispute" data-bs-toggle="modal" data-bs-target="#a1" style="cursor:pointer;">
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="a1" tabindex="-1" aria-labelledby="1Label" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="1Label">Insurance dispute</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quod consequuntur quibusdam, enim expedita sed quia nesciunt incidunt accusamus necessitatibus modi adipisci officia libero accusantium esse hic,.
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __( 'parameters.Close' ) }}</button>
+                        @for( $i=0; $i < count( $data[ 'occupationArea' ] ); $i++ )
+                            <div class="col-lg-4">
+                                <img class="img-responsive" src="{{ asset( 'storage'.json_decode( $data[ 'occupationArea' ][ $i ][ 'image' ] )[ 0 ] ) }}" alt="{{ $data[ 'occupationArea' ][ $i ][ 'title' ] }}" title="{{ $data[ 'occupationArea' ][ $i ][ 'title' ] }}" data-bs-toggle="modal" data-bs-target="#a1" style="cursor:pointer;">
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="a1" tabindex="-1" aria-labelledby="1Label" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="1Label">{{ $data[ 'occupationArea' ][ $i ][ 'title' ] }}</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                {{ $data[ 'occupationArea' ][ $i ][ 'text' ] }}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __( 'parameters.Close' ) }}</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endfor
+
                     </div>
                 </div>
             </section>
@@ -118,6 +140,7 @@
             <!-- /WHY CHOOSE US -->
 
             <!-- CONTACT -->
+            <div id="Contact"></div>
             <section class="p-0 mt-5">
                 <div class="container">
 
@@ -207,12 +230,42 @@
 
         @include( 'inc.javascripts' )
 
-
+        <script src="node_modules/slick-carousel/slick/slick.js"></script>
         <script async
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkwN3u-vtNIR33vowiLE0yCfpyVHj2iAU&callback=initMap">
         </script>
 
         <script>
+            const autoplay = () => {
+                if( $( window ).width() >= 992 ){
+                    $( '.autoplay' ).slick(
+                        {
+                            slidesToShow:   4,
+                            slidesToScroll: 1,
+                            autoplay:       true,
+                            autoplaySpeed:  5000
+                        }
+                    );
+                }else{
+                    $( '.autoplay' ).slick(
+                        {
+                            slidesToShow:   1,
+                            slidesToScroll: 1,
+                            autoplay:       true,
+                            autoplaySpeed:  5000
+                        }
+                    );
+                }
+            };
+
+            $( document ).ready( function() {
+                $('#banner').carousel({
+                    interval: 7000
+                });
+
+                autoplay();
+            });
+
             let map;
 
             function initMap() {
