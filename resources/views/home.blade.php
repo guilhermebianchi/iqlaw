@@ -144,7 +144,7 @@
             <section class="p-0 mt-5">
                 <div class="container">
 
-                    <form class="quform" action="contact" method="post">
+                    <form id="quform" class="quform" action="contact" method="post">
                         @csrf
 
                         <div class="quform-elements">
@@ -197,7 +197,7 @@
 
                                 <div class="col-md-12 col-lg-2">
                                     <div class="quform-submit-inner">
-                                        <button class="butn theme butn-md" type="submit" style="background:#a68956;"><span>{{ __( 'parameters.Send' ) }}</span></button>
+                                        <button class="butn theme butn-md g-recaptcha" type="submit" style="background:#a68956;" data-sitekey="6LeXcqoeAAAAAPJipp0MdKvsymvjfFqo9SwlEApC" data-callback='onSubmit' data-action='submit'><span>{{ __( 'parameters.Send' ) }}</span></button>
                                     </div>
                                     <div class="quform-loading-wrap text-start"><span class="quform-loading"></span></div>
                                 </div>
@@ -230,12 +230,17 @@
 
         @include( 'inc.javascripts' )
 
-        <script src="node_modules/slick-carousel/slick/slick.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <script src="{{ URL::asset( 'slick-carousel/slick/slick.js' ) }}"></script>
         <script async
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkwN3u-vtNIR33vowiLE0yCfpyVHj2iAU&callback=initMap">
         </script>
 
         <script>
+            function onSubmit(token) {
+                document.getElementById("quform").submit();
+            }
+
             const autoplay = () => {
                 if( $( window ).width() >= 992 ){
                     $( '.autoplay' ).slick(

@@ -33,7 +33,6 @@ class ContactController extends Controller
                 'email' => 'required',
                 'subject' => 'required',
                 'message' => 'required',
-                'grecaptcha' => [ 'required', new ReCAPTCHAv3() ],
             ]
         );
 
@@ -50,15 +49,15 @@ class ContactController extends Controller
 
                 Mail::to( Config::get('mail.from.address' ) )->send( new ContactMail( $Contact ) );
 
-                echo '<script> alert( "Enviado com sucesso!" ); window.location.href = "'.route('contact').'"; </script>';
+                echo '<script> alert( "Enviado com sucesso!" ); window.location.href = "'.route('home').'"; </script>';
                 exit;
             }else{
-                echo '<script> alert( "Erro!" ); window.location.href = "'.route('contact').'"; </script>';
+                echo '<script> alert( "Erro!" ); window.location.href = "'.route('home').'"; </script>';
                 exit;
             }
 
         }else{
-            echo '<script> alert( "Erro!" ); window.location.href = "'.route('contact').'"; </script>';
+            echo '<script> alert( "Erro!" ); window.location.href = "'.route('home').'"; </script>';
             exit;
         }
     }

@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ URL::asset( 'stylesheets/plugins.css' ) }}">
 <link rel="stylesheet" href="{{ URL::asset( 'stylesheets/styles.css' ) }}">
 <link rel="stylesheet" href="{{ URL::asset( 'stylesheets/custom.css' ) }}">
-<link rel="stylesheet" href="node_modules/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="{{ URL::asset( 'slick-carousel/slick/slick.css' ) }}">
 <link rel="stylesheet" href="{{ URL::asset( 'quform/css/base.css' ) }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
