@@ -9,7 +9,7 @@ return [
     'Name' => 'Nome',
     'Email' => 'E-mail',
     'Subject' => 'Assunto',
-    'Number' => 'Número',
+    'Number' => 'Número de contato',
     'Message' => 'Mensagem',
     'Send' => 'Enviar',
     'WorkingHours' => 'Faremos o possível para entrar em contato com você dentro de 6-8 horas úteis.',

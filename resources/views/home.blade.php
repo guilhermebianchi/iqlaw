@@ -41,13 +41,8 @@
             <section class="container-fluid p-0 mt-5 mb-5">
                 <div class="container text-center font-weight-400" style="font-size:13px;">
                     <img class="mb-5" src="{{ URL::asset( 'images/logo.png' ) }}" title="{{ __( 'parameters.title' ) }}" alt="{{ __( 'parameters.title' ) }}">
-                    <p>Proteja seu bem estar com a tranquilidade de ter seus assuntos legais resolvidos e entregues em boas mãos.</p>
 
-                    <p>Proteja sua herança e seus entes queridos com um advogado competente na área de planejamento patrimonial e legalize seu testamento a tempo.</p>
-
-                    <p>A falta de preparação para que os seus desejos finais sejam atendidos, coloca em suas realizações ao longo da vida um risco incomensurável. Sem documentação clara, você força seus entes queridos a arcarem com a tarefa estressante de gerenciar seus ativos e pagar taxas desnecessárias e taxas de sucessão. Se você preparar um testamento no exterior, sem a devida ajuda de um advogado de planejamento patrimonial qualificado, é possível que não haja meios de garantir que seus desejos finais sejam atendidos e seus beneficiários sejam devidamente protegidos.</p>
-
-                    <p>No escritorio de advocacia Paula Montoya, somos especialistas nas complexidades singulares do planejamento patrimonial. Tanto a área local como a internacional podem apresentar inúmeros aspectos de alta complexidade, difíceis de gerir. No entanto, com a assistência de um advogado qualificado no planejamento da patrimonial, você pode proteger o seu legado e eliminar a confusão e os custos que sempre acompanham um planejamento desorganizado.</p>
+                    <?php echo html_entity_decode( $data[ 'home' ][ 0 ][ 'text2' ] ); ?>
 
                     <div class="row mt-5">
                         <div class="col-lg-6">
@@ -55,10 +50,10 @@
                         </div>
                         <div class="col-lg-6 ps-8">
                             <h3 class="text-black mb-2" style="text-align:left; font-family:Raleway; font-weight:bold;">IARA QUADROS.</h3>
-                            <h5 class="text-black" style="text-align:left; font-family:Raleway; font-weight:normal;">Follower of Christ, attorney, real estate developer, proud mommy, visionary, curitibana</h5>
+                            <h5 class="text-black" style="text-align:left; font-family:Raleway; font-weight:normal;"><?php echo html_entity_decode( $data[ 'home' ][ 0 ][ 'text3' ] ); ?></h5>
                             <div class="mt-4 mb-5" style="width:50px; height:3px; background:#000;"></div>
                             <div style="color:#666; text-align:justify;">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quod consequuntur quibusdam, enim expedita sed quia nesciunt incidunt accusamus necessitatibus modi adipisci officia libero accusantium esse hic,.
+                                <?php echo html_entity_decode( $data[ 'home' ][ 0 ][ 'text4' ] ); ?>
                             </div>
                         </div>
                     </div>
@@ -70,7 +65,7 @@
             <!-- RANGE -->
             <section class="container-fluid p-0" style="background:#333333;">
                 <div class="container text-center text-white" style="line-height:80px; font-size:23px;">
-                    SEU ADVOGADO NA ÁREA DE NEGÓCIOS E O SEU MELHOR PARCEIRO
+                    <?php echo html_entity_decode( $data[ 'home' ][ 0 ][ 'text5' ] ); ?>
                 </div>
             </section>
             <!-- /RANGE -->
@@ -78,7 +73,7 @@
             <!-- OCCUPATION AREA -->
             <section class="mt-5 mb-5 p-0">
                 <h3 class="text-center mb-5">
-                    ÁREA DE ATUAÇÃO
+                    <?php echo html_entity_decode( $data[ 'home' ][ 0 ][ 'text6' ] ); ?>
                 </h3>
 
                 <div class="container">
@@ -113,10 +108,10 @@
             <!-- WHY CHOOSE US -->
             <section class="container-fluid p-0" style="background:#686868;">
                 <div class="container p-5">
-                    <h5 class="text-white">POR QUE ESCOLHER A GENTE?</h5>
+                    <h5 class="text-white"><?php echo html_entity_decode( $data[ 'home' ][ 0 ][ 'text7' ] ); ?></h5>
                     <div style="width:50px; height:3px; background:#fff;"></div>
                     <div class="mt-4 text-left text-white" style="font-size:13px; line-height:25px;">
-                        Para novas empresas apenas decolando ou para aquelas já estabelecidas mas que almejam  horizontes mais amplos, a orientação correta de um advogado experiente pode fazer uma diferença substancial. Abertura de empresas, acordos de investimento, contratos de trabalho e marcas registradas são apenas alguns dos detalhes importantes  que irão proteger os seus esforços de negócios e assegurar um futuro rentável. Com mais de 10 anos de experiência jurídica abrangente, Iara Quadros é capaz de atuar com dedicação e habilidade  para criar um ambiente bem sucedido. Nosso escritório de advocacia tem-se desenvolvido, com o comprometimento de  abordagens honestas, com estratégias claras e conselhos inteligentes.
+                        <?php echo html_entity_decode( $data[ 'home' ][ 0 ][ 'text8' ] ); ?>
                     </div>
                 </div>
             </section>
@@ -126,106 +121,78 @@
             <section class="p-0 mt-5">
                 <div class="container">
 
-                    <form class="quform" action="contact" method="post" onclick="">
+                    <form class="quform" action="contact" method="post">
                         @csrf
 
                         <div class="quform-elements">
-
                             <div class="row">
-
-                                <!-- Begin Text input element -->
                                 <div class="col-md-6">
                                     <div class="quform-element">
-                                        <label for="name">Name <span class="quform-required">*</span></label>
+                                        <label for="name">{{ __( 'parameters.Name' ) }} <span class="quform-required">*</span></label>
                                         <div class="quform-input">
                                             <input class="form-control" id="name" type="text" name="name" placeholder="" />
                                         </div>
                                     </div>
-
                                 </div>
-                                <!-- End Text input element -->
 
-                                <!-- Begin Text input element -->
                                 <div class="col-md-6">
                                     <div class="quform-element">
-                                        <label for="email">Email <span class="quform-required">*</span></label>
+                                        <label for="email">{{ __( 'parameters.Email' ) }} <span class="quform-required">*</span></label>
                                         <div class="quform-input">
                                             <input class="form-control" id="email" type="text" name="email" placeholder="" />
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End Text input element -->
 
-                                <!-- Begin Text input element -->
                                 <div class="col-md-6">
                                     <div class="quform-element">
-                                        <label for="subject">Subject <span class="quform-required">*</span></label>
+                                        <label for="subject">{{ __( 'parameters.Subject' ) }} <span class="quform-required">*</span></label>
                                         <div class="quform-input">
                                             <input class="form-control" id="subject" type="text" name="subject" placeholder="" />
                                         </div>
                                     </div>
-
                                 </div>
-                                <!-- End Text input element -->
 
-                                <!-- Begin Text input element -->
                                 <div class="col-md-6">
                                     <div class="quform-element">
-                                        <label for="phone">Contact Number</label>
+                                        <label for="phone">{{ __( 'parameters.Number' ) }}</label>
                                         <div class="quform-input">
                                             <input class="form-control" id="phone" type="text" name="phone" placeholder="" />
                                         </div>
                                     </div>
 
                                 </div>
-                                <!-- End Text input element -->
 
-                                <!-- Begin Textarea element -->
                                 <div class="col-md-12">
                                     <div class="quform-element">
-                                        <label for="message">Message <span class="quform-required">*</span></label>
+                                        <label for="message">{{ __( 'parameters.Message' ) }} <span class="quform-required">*</span></label>
                                         <div class="quform-input">
                                             <textarea class="form-control" id="message" name="message" rows="3" placeholder=""></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End Textarea element -->
 
-                                <!-- Begin Submit button -->
                                 <div class="col-md-12 col-lg-2">
                                     <div class="quform-submit-inner">
-                                        <button class="butn theme butn-md" type="submit" style="background:#a68956;"><span>Send</span></button>
+                                        <button class="butn theme butn-md" type="submit" style="background:#a68956;"><span>{{ __( 'parameters.Send' ) }}</span></button>
                                     </div>
                                     <div class="quform-loading-wrap text-start"><span class="quform-loading"></span></div>
                                 </div>
                                 <div class="col-md-12 col-lg-8" style="line-height:50px;">
-                                    We'll do our best to get back to you within 6-8 working hours.
+                                    {{ __( 'parameters.WorkingHours' ) }}
                                 </div>
-                                <!-- End Submit button -->
 
                             </div>
-
                         </div>
-
                     </form>
                 </div>
                 <div class="row mt-5">
                     <div class="col-lg-9" id="map" style="height:450px;"></div>
                     <div class="col-lg-3 ps-5" style="background:#f5f5f5;">
-                        <h4 class="mt-5 mb-5">Our Headquarters</h4>
-                        <p>
-                            <span style="font-weight:bold;">North America:</span><br>
-                            795 Folsom Ave, Suite 600<br>
-                            San Francisco, CA 94107<br><br>
+                        <h4 class="mt-5 mb-5"><?php echo html_entity_decode( $data[ 'home' ][ 0 ][ 'text9' ] ); ?></h4>
 
-                            <span style="font-weight:bold;">Europe:</span><br>
-                            795 Folsom Ave, Suite 600<br>
-                            San Francisco, CA 94107<br><br>
+                        <?php echo html_entity_decode( $data[ 'home' ][ 0 ][ 'text10' ] ); ?>
 
-                            <span style="font-weight:bold;">Phone:</span> (91) 8547 632521<br>
-                            <span style="font-weight:bold;">Fax:</span> (91) 11 4752 1433<br>
-                            <span style="font-weight:bold;">Email:</span> info@canvas.com<br>
-                        </p>
                     </div>
                 </div>
             </section>
