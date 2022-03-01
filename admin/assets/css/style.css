@@ -1,0 +1,93 @@
+.login-logo a {
+	font-size:35px;
+	font-weight:bold;
+	font-style:italic;
+	color:#3B5EA9;
+}
+
+.login-logo a b {
+	font-size:40px;
+	color:#00B3F0;
+}
+
+.error-label {
+	color:red;
+	font-size:11px;
+	font-weight:normal;
+}
+
+.pad-right {
+	margin-right:5px;
+}
+
+.btn-ss {
+	margin-left:5px;
+	padding: 0px 5px 0px 5px;
+	border-radius:2px;
+}
+
+.clearfix {
+	clear:both;
+}
+
+.no-resize {
+	resize:none;
+}
+
+.galery {
+	height:auto;
+	padding:5px;
+	margin-bottom:20px;
+}
+.galery::after {
+	font-family: "FontAwesome","Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+	content:"\f071  Clique no item para remover.";
+	color:#999;
+	position:absolute;
+	bottom:0px;
+	left:16px;
+	font-size:12px;
+}
+
+.galery-item {
+	background-size:100%;
+	background-position:center center;
+	background-repeat:no-repeat;
+	border:1px solid #999;
+	color:rgba(0,0,0,0);
+	margin-right:5px;
+	cursor:pointer;
+	width:52px;
+	height:52px;
+}
+
+.galery-item:hover {
+	border:1px solid red;
+}
+
+.galery-item:hover::before {
+	content:"x";
+	font-size:20px;
+	color:red;
+}
+
+.file-archive {
+	width:72px;
+}
+
+.file-name-label {
+	font-weight:normal;
+	font-size:12px;
+}
+
+.font-awesome-icon {
+	cursor:pointer;
+	background-color:#fff!important;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;	 /* Chrome/Safari/Opera */
+	-khtml-user-select: none;		/* Konqueror */
+	-moz-user-select: none;			/* Firefox */
+	-ms-user-select: none;			 /* Internet Explorer/Edge */
+	user-select: none;				 /* Non-prefixed version, currently
+									not supported by any browser */
+}	
